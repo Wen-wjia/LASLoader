@@ -14,17 +14,23 @@ public class ButtonManager : MonoBehaviour
     string fileName;
 
     FileSelectManager fsm;
+    ModelManager mm;
 
     // Start is called before the first frame update
     void Start()
     {
         fsm = FindObjectOfType<FileSelectManager>();
+        mm = FindObjectOfType<ModelManager>();
     }
-    
+
     public void ShowList()
     {
         listView.SetActive(true);
-        fsm.GenerateList();
+        if (fsm.isFirst)
+        {
+            fsm.GenerateList();
+        }
+        mm.DestroyLAS();
     }
 
     public void LoadFile(TMP_Text text)

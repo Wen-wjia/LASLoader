@@ -8,11 +8,12 @@ public class FileSelectManager : MonoBehaviour
 {
     GameObject importBtn;
     
-
     public string filePath;
     public GameObject btn;
     public GameObject listView;
     public Transform parent;
+
+    public bool isFirst = true;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +38,7 @@ public class FileSelectManager : MonoBehaviour
             newBtn.transform.position = new Vector3(btn.transform.position.x, btn.transform.position.y - 50 * i, btn.transform.position.z);
         }
 
+        isFirst = false;
         btn.SetActive(false);
     }
 
